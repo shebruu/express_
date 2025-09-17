@@ -21,26 +21,25 @@ const findOneById = async (id) => {
 }
 
 const create = async (car = {}) => {
-    const {brand, model, year, hp} = car
+    const { brand_id, model, year, hp } = car;
 
-    if(brand && model && year && hp) {
+    if (brand_id && model && year && hp) {
         await carsRepository.create(car);
-        return serviceCallResult.created()
-    } 
+        return serviceCallResult.created();
+    }
 
-    const errorDetails = ["A car must have "]
-    
-    if(!brand) errorDetails.push("a brand");
-    if(!model) errorDetails.push("a model");
-    if(!year) errorDetails.push("a year");
-    if(!hp) errorDetails.push("hps");
+    const errorDetails = ["A car must have "];
+    if (!brand_id) errorDetails.push("a brand");
+    if (!model) errorDetails.push("a model");
+    if (!year) errorDetails.push("a year");
+    if (!hp) errorDetails.push("hps");
 
-    const error = errorDetails.join(" ,")
-    return serviceCallResult.badRequest(error)
-}
+    const error = errorDetails.join(" ,");
+    return serviceCallResult.badRequest(error);
+};
 
 const update = async (id, newCar = {}) => {
-    const {brand, model, year, hp} = car
+    const { brand_id, model, year, hp } = newCar;
      const car = await carsRepository.findById(id)
 
      if(!car) return serviceCallResult.notFound(`car with id #${id} not found`)
