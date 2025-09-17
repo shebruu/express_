@@ -1,9 +1,9 @@
 const {
-  models: { brand },
+  models: {  Brands },
 } = require("../models");
 
 const findAll = () => {
-  return brand.findAll();
+  return Brands.findAll();
 };
 
 const findAllFiltered = (filters) => {
@@ -11,15 +11,15 @@ const findAllFiltered = (filters) => {
   if (filters.name) {
     where.name = filters.name;
   }
-  return brand.findAll({ where });
+  return Brands.findAll({ where });
 };
 
 const findById = (id) => {
-  return brand.findByPk(id);
+  return Brands.findByPk(id);
 };
 
 const create = (newBrand) => {
-  return brand.create(newBrand);
+  return Brands.create(newBrand);
 };
 
 const update = (brand, newBrand) => {

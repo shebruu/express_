@@ -16,6 +16,10 @@ const cars = (sequelize) => {
     brand_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
+      references: {
+        model: 'Brands',
+        key: 'id'
+      }
     
     },
     model: {

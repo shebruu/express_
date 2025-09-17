@@ -1,4 +1,4 @@
-const sequelize = require("../config/database");
+
 const { DataTypes } = require('sequelize');
 
 
@@ -18,6 +18,7 @@ const brands = (sequelize) => {
     {
       tableName: 'brands',
       schema: 'public',
+      
     }
   );
 };
@@ -25,4 +26,3 @@ const brands = (sequelize) => {
 
 module.exports = brands;
 // `sequelize.define` also returns the model
-console.log(brands === sequelize.models.Brands); // true
