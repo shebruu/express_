@@ -20,11 +20,11 @@ app.use(errorHandler);
 const bootsrap = async () => {
   
 await sequelize.authenticate();
-/*
+
 await sequelize.sync(
   { force: true }
 
-);*/
+);
 
 app.listen(process.env.PORT, () =>
   console.log("App Running on port", process.env.PORT)
